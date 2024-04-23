@@ -25,10 +25,12 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "node_modules/@ngneat/hot-toast/src/styles/styles.css",
               "src/styles.css",
               "src/assets/vendor/fontawesome-free/css/all.min.css",
-              "src/assets/css/sb-admin-2.min.css"
+              "src/assets/css/sb-admin-2.min.css",
+              "src/assets/vendor/datatables/dataTables.bootstrap4.min.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.min.js",
@@ -37,7 +39,10 @@
               "src/assets/js/sb-admin-2.min.js",
               "src/assets/vendor/chart.js/Chart.min.js",
               "src/assets/js/demo/chart-area-demo.js",
-              "src/assets/js/demo/chart-pie-demo.js"
+              "src/assets/js/demo/chart-pie-demo.js",
+              "src/assets/vendor/datatables/jquery.dataTables.min.js",
+              "src/assets/vendor/datatables/dataTables.bootstrap4.min.js",
+              "src/assets/js/demo/datatables-demo.js"
             ]
           },
           "configurations": {
@@ -104,9 +109,11 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css",
               "src/assets/vendor/fontawesome-free/css/all.min.css",
-              "src/assets/css/sb-admin-2.min.css"
+              "src/assets/css/sb-admin-2.min.css",
+              "src/assets/vendor/datatables/dataTables.bootstrap4.min.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.min.js",
@@ -115,7 +122,10 @@
               "src/assets/js/sb-admin-2.min.js",
               "src/assets/vendor/chart.js/Chart.min.js",
               "src/assets/js/demo/chart-area-demo.js",
-              "src/assets/js/demo/chart-pie-demo.js"
+              "src/assets/js/demo/chart-pie-demo.js",
+              "src/assets/vendor/datatables/jquery.dataTables.min.js",
+              "src/assets/vendor/datatables/dataTables.bootstrap4.min.js",
+              "src/assets/js/demo/datatables-demo.js"
             ]
           }
         }

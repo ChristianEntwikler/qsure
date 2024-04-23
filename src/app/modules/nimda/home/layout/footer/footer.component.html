@@ -5,3 +5,173 @@
         </div>
     </div>
 </footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--Chatter start here-->
+<button type="submit" class="open-button" (click)="openForm()" onclick="openForm()"><i class="fa fa-comment fa-2x" aria-hidden="true"></i></button>
+        
+      
+        <div class="chat-popup" id="myForm">
+          <div class="form-container box box-warning direct-chat direct-chat-warning">
+            
+            <div class="row">
+
+            <div class="col-lg-4">
+                <div class="side-one">
+                  <div class="row heading">
+                    <div class="col-sm-3 col-xs-3 heading-avatar">
+                      <div class="heading-avatar-icon">
+                          <i class="fa fa-user-circle-o fa-2x"></i>
+                      </div>
+                      
+                    </div>
+                    <span class="name-meta">{{profReq.name}}
+                  </span>
+                  </div>
+          
+                  <div class="row searchBox" >
+                    <div class="col-sm-12 searchBox-inner">
+                      <div class="form-group has-feedback">
+                          <div class="form-group row">
+                                        
+                                        
+                              <mat-form-field class="col-sm-12" >
+                                <mat-label>Search user</mat-label>
+                                <input type="text"
+                                       placeholder="Select user"
+                                       aria-label="user Search"
+                                       
+                                       matInput
+                                       [formControl]="myControl"
+                                       [matAutocomplete]="auto">
+                                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onUserSelectionChanged($event)" >
+                                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+                                    {{option.name}}
+                                  </mat-option>
+                                </mat-autocomplete>
+                              </mat-form-field>
+                            
+                            
+                          </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="row sideBar" style="height:200px;">
+                    <div class="row sideBar-body" style="width:100% !important; padding:0% !important; padding-left:12% !important; margin:0%; margin-top:10px !important; background-color: #f1f1f1;" *ngFor="let mg of msgr">
+                      <button type="button" class="btn btn-flat" (click)="selectUser(mg)" style="height:40px; background-color:transparent; margin:0% !important; margin-left:-12% !important; color: #0360a5; border:0px groove #000; ">
+                      <div class="row form-group" style="width:100%; height:100%; padding:0% !important; margin:0% !important; margin-left:-7% !important; border:0px groove #000;">
+                        <div class="col-sm-3 col-xs-3 sideBar-avatar">
+                          <div class="row form-group" style="width:100%; height:100%; padding:0% !important; margin:0% !important;">
+                        <div class="avatar-icon">
+                          <i class="fa fa-user-circle-o fa-1x"></i>
+                        </div> 
+                        <label style="margin-left:3%; margin-top:8%;" class="badge badge-primary"> {{mg.count}} </label>
+                      </div>
+                      </div>
+                      <div class="col-sm-9 col-xs-9 sideBar-main" style="width:100%; height:100%; padding:0% !important; margin:0% !important;">
+                        <div class="row">
+                          <div class="col-sm-8 col-xs-8">
+                            <span style="margin-left:-20% !important;" class="text-xs">{{mg.recipient}}
+                          </span>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      </div>
+                      </button>
+                    </div>
+          
+                    
+          
+                  </div>
+                </div>
+              
+              </div>
+
+              <div class="col-lg-8">
+            
+            
+            
+            
+            <div class="box-header with-border">
+                <h3 class="box-title">{{recipName}}</h3>
+
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" (click)="closeForm()"><i class="fa fa-minus"></i>
+                  </button>
+                  
+                </div>
+              </div>
+        
+                    
+            <div class="box-body">
+                  
+                <div class="direct-chat-messages">
+                  <div *ngFor="let itl of chats">
+                  <div class="direct-chat-msg" *ngIf="itl.sender!==profReq.username">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-left">{{itl.recipient}}</span>
+                      <span class="direct-chat-timestamp pull-right">{{itl.createdAt}}</span>
+                    </div>
+                    <i class="fa fa-user-circle-o fa-3x direct-chat-img"></i>
+                 
+                    <div class="direct-chat-text">
+                      {{itl.message}}
+                    </div>
+      
+                  </div>
+                  
+                  <div class="direct-chat-msg right" *ngIf="itl.sender===profReq.username">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-right">{{itl.sender}}</span>
+                      <span class="direct-chat-timestamp pull-left">{{itl.createdAt}}</span>
+                    </div>
+                   
+                    <i class="fa fa-user-circle-o fa-3x direct-chat-img"></i>
+                    
+                    <div class="direct-chat-text">
+                      {{itl.message}}
+                    </div>
+                 
+                  </div>
+                 </div>
+
+                </div>
+               
+              </div>
+
+            <div class="box-footer">
+                
+                  <div class="input-group">
+                    <div class="col-sm-10">
+                    <textarea rows="1" cols="2" id="comment" placeholder="Type Message ..." style="overflow-y: auto; width: 100%;
+                    resize: none;
+                    overflow: hidden;
+                    padding: 0px !important;
+                    outline: none;
+                    border: 1px groove #0360a5;
+                    text-indent: 5px;
+                    box-shadow: none;
+                    height: 100% !important;
+                    font-size: 12px;" [(ngModel)]="msg"></textarea>
+                    </div>
+                    <!-- <input type="text" name="message" placeholder="Type Message ..." class="form-control"> -->
+                    <span class="col-sm-2 input-group-btn">
+                          <button type="button" class="btn btn-primary btn-flat" style="background-color:#fff; margin-left:0.5%" (click)="sendChat()"><i class="fa fa-send" style="color: #0360a5;"></i></button>
+                        </span>
+                  </div>
+                
+              </div> 
+              
+              
+              </div>
+              </div>
+
+            </div>
+        </div>
+
+        
+
+        

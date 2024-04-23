@@ -15,18 +15,18 @@
 
                             
                             
-                <form class="form-inline mr-auto w-100 navbar-search">
+                <div class="form-inline mr-auto w-100 navbar-search">
                     <div class="input-group col-lg-12">
                         <input type="text" class="form-control bg-light border-0 small col-lg-12"
                             placeholder="Search for..." aria-label="Search"
-                            aria-describedby="basic-addon2">
+                            aria-describedby="basic-addon2" [(ngModel)]="reqi">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
+                            <button class="btn btn-primary" type="submit" (click)="searcher()">
                                 <i class="fas fa-search fa-sm"></i>
                             </button>
                         </div>
                     </div>
-                </form>          
+                </div>          
                             
                         </div>
 
@@ -42,17 +42,23 @@
         <div class="row" >
             <div class="col-lg-12" >
             <div class="form-group row" >
-            <div class="col-xl-3 col-md-6 mb-4" *ngFor="let items of itemSearch.result">
+            <div class="col-xl-3 col-md-6 mb-4" *ngFor="let data of itemSearch" ng-hide="data.items_name == null">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
+                            
                             <div class="col-auto mr-2">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
                             </div>
                             <div class="col ">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    {{items.name}}</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{items.address}}</div>
+                                <a href="#">
+                                <div class="text-xs font-weight-bold text-primary mb-1">                                  
+                                    {{data.items_name}} <br/> {{data.name}}</div>
+                                <div class="text-xs h5 mb-0 font-weight-normal text-info">{{data.items_qty}} remaining</div>
+                                <div class="text-xs h5 mb-0 font-weight-normal text-secondary">{{data.items_amt}} each </div>
+                                <div class="text-xs h5 mb-0 font-weight-normal text-success">{{data.items_discount}}% discount </div>
+                                <div class="text-xs h5 mb-0 font-weight-bold text-gray-800">{{data.address}}</div>
+                                </a>
                             </div>
                             
                         </div>
@@ -137,6 +143,104 @@
          
  
     </div>
-    
+   
+        
+               
+        <button type="submit" class="open-button" (click)="openForm()" onclick="openForm()"><i class="fa fa-comment fa-2x" aria-hidden="true"></i></button>
+        
+        <div class="chat-popup" id="myForm">
+          <div class="form-container box box-warning direct-chat direct-chat-warning">
+            <div class="box-header with-border">
+                <h3 class="box-title">Agent Online</h3>
+
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" (click)="closeForm()"><i class="fa fa-minus"></i>
+                  </button>
+                  
+                </div>
+              </div>
+        
+                    
+            <div class="box-body">
+                  
+                <div class="direct-chat-messages">
+              
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-left">Timona Siera</span>
+                      <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                    </div>
+                   
+                    <img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="message user image">
+                 
+                    <div class="direct-chat-text">
+                      For what reason would it be advisable for me to think about business content?
+                    </div>
+      
+                  </div>
+                  
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                    </div>
+                   
+                    <img class="direct-chat-img" src="https://img.icons8.com/office/36/000000/person-female.png" alt="message user image">
+                    
+                    <div class="direct-chat-text">
+                      Thank you for your believe in our supports
+                    </div>
+                 
+                  </div>
+                 
+
+                
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-left">Timona Siera</span>
+                      <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
+                    </div>
+           
+                    <img class="direct-chat-img" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="message user image">
+                   
+                    <div class="direct-chat-text">
+                      For what reason would it be advisable for me to think about business content?
+                    </div>
+                  
+                  </div>
+                 
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
+                    </div>
+                   
+                    <img class="direct-chat-img" src="https://img.icons8.com/office/36/000000/person-female.png" alt="message user image">
+        
+                    <div class="direct-chat-text">
+                      I would love to.
+                    </div>
+                  
+                  </div>
+          
+
+                </div>
+               
+              </div>
+
+            <div class="box-footer">
+                
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-btn">
+                          <button type="button" class="btn btn-warning btn-flat" style="background-color:#fff; margin-left:0.5%"><i class="fa fa-send" style="color: #0360a5;"></i></button>
+                        </span>
+                  </div>
+                
+              </div>         
+            </div>
+        </div>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">     
 
 </body>

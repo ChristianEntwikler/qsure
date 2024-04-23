@@ -1,0 +1,127 @@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <app-nav></app-nav>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <app-header></app-header>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-secondary">Users Log</h6>
+                        </div>
+                        <div class="card-body">
+
+                            <div fxLayout fxLayoutAlign="center center">
+                                <mat-form-field style="width: 40vw;">
+                                    <input matInput type="text" (input)="doFilter($event)" placeholder="Filter data">
+                                </mat-form-field>
+                            </div>
+                            <div class="table-responsive">
+                            
+                            <mat-table #table [dataSource]="dataSource" matSort class="table table-striped text-xs overflow-x: scroll; overflow-y: scroll;">
+                                
+                                <ng-container matColumnDef="name">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>name</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.name}}</td>
+                                </ng-container>
+                            
+                                <ng-container matColumnDef="username">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>username</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.username}}</td>
+                                </ng-container>
+                            
+                                <ng-container matColumnDef="mobileno">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>mobile no</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.mobileno}}</td>
+                                </ng-container>
+                            
+                                <ng-container matColumnDef="email">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>email</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.email}}</td>
+                                </ng-container>
+                            
+                                <ng-container matColumnDef="status">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>status</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.status }}</td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="datecreated">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>date created</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.createdAt }}</td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="requesttype">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>request type</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.userlogs_requesttype}}</td>
+                                </ng-container>
+                            
+                                <ng-container matColumnDef="description">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>description</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.userlogs_description }}</td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="logdate">
+                                    <th class="text-xs" mat-header-cell *matHeaderCellDef>log date</th>
+                                    <td class="text-xs" mat-cell *matCellDef="let element">{{element.userlogs_createdAt }}</td>
+                                </ng-container>
+                            
+                                <tr class="table table-striped text-xs text-nowrap overflow-x: scroll; overflow-y: scroll;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr class="table table-striped text-xs text-nowrap overflow-x: scroll; overflow-y: scroll;" mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+                                
+                            </mat-table>
+
+                            </div>
+
+                            <div>
+                                <mat-paginator 
+                                #paginator
+                                [pageSize]="5"
+                                [pageSizeOptions]="[5, 10, 20]" 
+                                showFirstLastButtons
+                                >
+                                </mat-paginator>
+                            </div>
+
+
+
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <app-footer></app-footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+</body>
