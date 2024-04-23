@@ -31,42 +31,61 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Clients</a>
-                <a class="collapse-item" href="utilities-border.html">Shops</a>
-                <a class="collapse-item" href="utilities-animation.html">Users</a>
-                <a class="collapse-item" href="utilities-other.html">Agents</a>
+                <a class="collapse-item" [routerLink]="['/secured/reg/client']">Clients</a>
+                <a class="collapse-item" [routerLink]="['/secured/reg/shop']">Shops</a>
+                <a class="collapse-item" [routerLink]="['/secured/reg/item']">Items</a>
+                <a class="collapse-item" [routerLink]="['/secured/reg/user']">Users</a>
+                <a class="collapse-item" [routerLink]="['/secured/reg/agent']">Agents</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClients"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-users"></i>
             <span>Clients</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseClients" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html">Shops</a>
-                <a class="collapse-item" href="cards.html">Available Links</a>
+                <a class="collapse-item" [routerLink]="['/secured/clientso']">Clients</a>
+                <a class="collapse-item" [routerLink]="['/secured/clients']">Client Shops</a>
             </div>
         </div>
     </li>
 
        <!-- Nav Item - Pages Collapse Menu -->
        <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseShops"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-shopping-bag"></i>
             <span>Shops</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapseShops" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="login.html">Available Links</a>
-                <a class="collapse-item" href="register.html">Search Shops</a>
-                <a class="collapse-item" href="forgot-password.html">Report</a>
+                <a class="collapse-item" [routerLink]="['/secured/shopso']">Shops</a>
+                <a class="collapse-item" [routerLink]="['/secured/shops']">Available Links</a>
+                <a class="collapse-item" [routerLink]="['/secured/shops']">Shop Items</a>
+                <a class="collapse-item" [routerLink]="['/secured/items']">Items</a>
+                
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUm"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-user-md"></i>
+            <span>User Management</span>
+        </a>
+        <div id="collapseUm" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" [routerLink]="['/secured/report/userso']">Users</a>
+                <a class="collapse-item" [routerLink]="['/secured/report/usertrail']">User Log</a>
+                <a class="collapse-item" [routerLink]="['/secured/reg/role']">Role Setup</a>
+                <a class="collapse-item" [routerLink]="['/secured/report/role']">Role Management</a>
+                <a class="collapse-item" [routerLink]="['/secured/report/userrole']">User Role Management</a>
                 
             </div>
         </div>
@@ -84,16 +103,16 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-address-card"></i>
-            <span>Pending</span></a>
+        <a class="nav-link" [routerLink]="['/secured/profile']">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profile</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
     <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+        <a class="nav-link" (click)="logout()">
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             <span>Logout</span></a>
     </li>

@@ -19,6 +19,9 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "typeRoots": [
+      "./Scripts/typings"
+    ],
     "lib": [
       "ES2022",
       "dom"
