@@ -1,10 +1,10 @@
 export const environment = {
 baseUrl: "http://localhost",
 domainUrl: "http://localhost",
-client: "5000/client",
-shop: "5000/shop",
-item: "5000/item",
-chat: "5000/chat",
+client: "4000/client",
+shop: "4000/shop",
+item: "4000/item",
+chat: "4000/chat",
 apipth: "http://127.0.0.1",
-user: "9807",
+user: "8807",
 };
